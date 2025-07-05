@@ -13,6 +13,11 @@ How does MediaPipe's real-time performance compare to Martinez network's accurac
 What are the trade-offs between 2D pose detection and 2D-to-3D pose lifting?
 Which approach performs better under different conditions and use cases?
 
+🌐 Try Live Applications
+
+MediaPipe Pose Estimation: [🔗 Live Demo](https://huggingface.co/spaces/kushh108/Pose_Mediapipe)
+Martinez 3D Pose Estimation: [🔗 Live Demo](https://huggingface.co/spaces/kushh108/Human)
+
 🔬 Research Components
 1. MediaPipe Pose Estimation
 
@@ -71,7 +76,7 @@ Webcam (optional, for real-time processing)
 
 Quick Setup
 bash# Clone the repository
-git clone https://github.com/yourusername/pose-estimation-toolkit.git
+git clone https://github.com/kushal-tiwari/pose-estimation-toolkit.git
 cd pose-estimation-toolkit
 
 # Install dependencies
@@ -105,7 +110,6 @@ openpyxl>=3.1.0
 bash# Start the comparative analysis interface
 python app.py
 
-# Access at http://localhost:7860
 2. MediaPipe Processing
 pythonfrom pose_estimation import MediaPipeProcessor
 
@@ -223,9 +227,9 @@ Research Community: For benchmark datasets and evaluation protocols
 📞 Contact
 For questions, issues, or collaboration opportunities:
 
-Email: [your.email@example.com]
+Email: [kushal-tiwari@outlook.com]
 GitHub Issues: Project Issues
-Research Paper: [Link to paper if published]
+Research Paper: [TBD]
 
 
 <div align="center">
