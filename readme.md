@@ -6,11 +6,10 @@
   <img src="https://img.shields.io/badge/TensorFlow-2.0%2B-yellow.svg" alt="TensorFlow">
   <img src="https://img.shields.io/badge/OpenCV-4.8%2B-red.svg" alt="OpenCV">
   <img src="https://img.shields.io/badge/MediaPipe-0.10%2B-green.svg" alt="MediaPipe">
-  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
 </div>
 
 <div align="center">
-  <h3>🎯 A rigorous comparative analysis of MediaPipe and Martinez neural network architectures for human pose estimation</h3>
+  <h3>🎯 A Rigorous Comparative Analysis of MediaPipe and Martinez Neural Network Architectures for Human Pose Estimation, Carried out at the Indian Institute of Information Technology Kottayam Using the Max Planck Dataset</h3>
 </div>
 
 ---
@@ -23,19 +22,19 @@
 - [Live Demos](#-live-demos)
 - [Installation](#-installation)
 - [Usage](#-usage)
+- [Challenging Visual Conditions](#-usage)
 - [Results & Screenshots](#-results--screenshots)
 - [Benchmark Results](#-benchmark-results)
 - [Project Structure](#-project-structure)
 - [Research Applications](#-research-applications)
 - [Contributing](#-contributing)
-- [License](#-license)
 - [Contact](#-contact)
 
 ---
 
 ## 🚀 Overview
 
-A comprehensive comparative study analyzing human pose estimation performance between MediaPipe's real-time detection framework and the Martinez neural network architecture. This research toolkit provides in-depth analysis, benchmarking, and evaluation of two fundamentally different approaches to 3D human pose estimation.
+A comprehensive comparative study analyzing human pose estimation performance between Google's MediaPipe real-time detection framework and the Martinez neural network architecture. This research toolkit provides in-depth analysis, benchmarking, and evaluation of two fundamentally different approaches to 3D human pose estimation.
 
 ### 🔬 Key Research Questions
 
@@ -185,33 +184,39 @@ processor.create_3d_animation(poses_3d, "output_3d.mp4")
 
 ---
 
+## 🕺 Challenging Visual Conditions
+
+![Challenges](Pose/Challenges.png)
+
+I developed a dedicated web application designed to introduce and simulate a variety of visual challenges on datasets, such as motion blur, partial views, and occlusions. This tool allows for the controlled application of these imperfections, mimicking real-world conditions where images can be degraded or partially obstructed. By doing so, it supports rigorous testing and evaluation of computer vision models, particularly in pose estimation, ensuring their robustness and adaptability to challenging, less-than-ideal visual scenarios. This capability is vital for refining models to perform reliably in practical, unconstrained environments.
+
+---
+
 ## 📸 Results & Screenshots
 
-### MediaPipe Results
-<!-- Add your MediaPipe screenshots here -->
-*[Screenshot placeholder - MediaPipe pose detection on video]*
+![Pose_1](Pose/pose_1.png)
 
-**Output Files:**
-- `pose_estimation_video.mp4` - Original video with pose overlay
-- `joint_coordinates.json` - Frame-by-frame landmark data
-- `confidence_scores.csv` - Detection reliability metrics
-- `analysis_report.txt` - Statistical summaries
+Fig. 1: MediaPipe captures the overall pose but shows asymmetry in arm alignment and inconsistent limb lengths. In
+contrast, Martinez 2D maintains structural symmetry with
+accurate joint placement, producing a more anatomically
+consistent skeleton. This highlights Martinez’s stronger pose
+prior learning and spatial consistency
 
-### Martinez Network Results
-<!-- Add your Martinez Network screenshots here -->
-*[Screenshot placeholder - 3D pose visualization]*
+![Pose_2](Pose/pose_2.png)
 
-**Output Files:**
-- `original_with_2d_pose.mp4` - Original video with 2D pose overlay
-- `3d_pose_animation.mp4` - 3D pose animation
-- `joint_data.json` - Frame-by-frame 3D coordinates
-- `poses_2d.npy` & `poses_3d.npy` - Raw pose data
-- `skeleton_visualizations/` - Key frame visualizations
-- `processing_summary.txt` - Complete processing report
+Fig. 2: MediaPipe struggles with arm extension and hand
+localization, leading to incomplete or skewed upper-limb
+joints. Martinez 2D accurately captures the stretch pose with
+consistent limb proportions and upright posture, showcasing
+better generalization in elevated arm poses and non-standard
+joint orientations.
 
-### Comparison Dashboard
-<!-- Add comparison dashboard screenshot here -->
-*[Screenshot placeholder - Comparative analysis dashboard]*
+![Pose_3](Pose/pose_3.png)
+
+Fig. 3: MediaPipe fails to preserve joint continuity in bentover posture, showing disjointed limbs and misaligned joints.
+Martinez 2D maintains structural coherence and realistic
+articulation, correctly representing crouched limbs and torso
+bend, indicating better handling of complex, low-angle poses.
 
 ---
 
@@ -219,16 +224,42 @@ processor.create_3d_animation(poses_3d, "output_3d.mp4")
 
 ### Performance Metrics
 
-| Method | MPJPE (mm) | PCK@150 | FPS | Memory (GB) | Use Case |
-|--------|------------|---------|-----|-------------|----------|
-| **MediaPipe** | 45.2 | 94.8% | 30+ | 0.5 | Real-time applications |
-| **Martinez** | 37.8 | 96.2% | 15 | 2.1 | High-accuracy analysis |
+| Metric / Condition                        | MediaPipe (Visuals Applied) | Martinez 2D (Visuals Applied) |
+|-------------------------------------------|-----------------------------|-------------------------------|
+| MED (2D pixels)                           | 10.4 px                     | 6.8 px                        |
+| PCK@0.05 (Head)                           | 78.2%                       | 85.7%                         |
+| PCK@0.05 (Torso)                          | 80.4%                       | 88.1%                         |
+| PCP (Limb Detection Rate)                 | 74.6%                       | 83.9%                         |
+| Precision@0.05                            | 74.4%                       | 81.1%                         |
+| OKS-based mAP                             | 63.0%                       | 76.5%                         |
+| Occlusion Handling (↓ PCK drop)           | –12.0%                      | –6.7%                         |
+| Motion Blur (↓ Precision drop)            | –15.2%                      | –8.5%                         |
+| Partial View (↓ OKS drop)                 | –17.8%                      | –10.9%                        |
+
 
 ### Key Findings
 
 - **MediaPipe**: ⚡ Superior real-time performance, lower computational requirements
 - **Martinez**: 🎯 Higher accuracy, better for detailed analysis
-- **Use Case Dependent**: Choice depends on speed vs. accuracy requirements
+
+**From the Table:**  
+The results clearly show that the **Martinez 2D** method consistently outperforms **MediaPipe** across all evaluated metrics.
+
+- **Localization Accuracy:**  
+  Martinez achieves a significantly lower *Mean Euclidean Distance (MED)*, indicating more precise keypoint localization.
+
+- **Structural Robustness:**  
+  Higher *PCK* and *PCP* scores demonstrate that Martinez better captures and preserves human body structure.
+
+- **Graceful Degradation:**  
+  Under challenging visual degradations (e.g., occlusion, motion blur, partial views), Martinez experiences smaller performance drops, indicating stronger generalization to real-world conditions.
+
+- **MediaPipe Limitations:**  
+  MediaPipe’s reliance on clean, high-quality image features results in steep performance declines—particularly in *Precision* and *OKS-based mAP*—when subjected to visual noise or occlusions.
+
+**Conclusion:**  
+These findings suggest that deep learning-based models trained with **human kinematic priors** (such as Martinez et al.) provide superior accuracy, robustness, and resilience. This makes them more suitable for deployment in **unconstrained, real-world environments** compared to conventional lightweight real-time detectors.
+
 
 ### Supported Formats
 
@@ -245,24 +276,44 @@ processor.create_3d_animation(poses_3d, "output_3d.mp4")
 ## 📁 Project Structure
 
 ```
-pose-estimation-toolkit/
-├── 📄 app.py                          # Main Gradio interface
-├── 📂 pose_estimation/
-│   ├── 🐍 mediapipe_processor.py      # MediaPipe implementation
-│   ├── 🐍 martinez_processor.py       # Martinez network implementation
-│   └── 🐍 utils.py                    # Utility functions
-├── 📂 models/
-│   └── 💾 model_checkpoint.pth        # Pre-trained models
-├── 📂 data/
-│   ├── 📂 input_videos/               # Input video files
-│   └── 📂 output_results/             # Processing results
-├── 📂 notebooks/
-│   └── 📓 comparative_analysis.ipynb  # Research analysis
-├── 📂 tests/
-│   └── 🧪 test_processors.py          # Unit tests
-├── 📄 requirements.txt                # Dependencies
-├── 📄 download_models.py              # Model downloader
-└── 📖 README.md                       # This file
+POSE-ESTIMATION-TOOLKIT/ 🕺
+
+├── Pose/ 📸                   # Contains sample pose images (pose_1.png, etc.)
+│   ├── pose_1.png
+│   ├── pose_2.png
+│   └── pose_3.png
+│
+├── assets/ 🎨                 # For documentation visuals
+│   ├── screenshots/ 🖼️         # Screenshots for README or docs
+│   │   └── feature-demo.png
+│   └── banners/ 🏷️            # Mockups, banner strips, design elements
+│       └── text-strip-example.png
+│
+├── models/ 🧠                 # Model weights, checkpoints
+│   └── model_checkpoint.pth
+│
+├── scripts/ 💻                # Core Python scripts for inference, training, utilities
+│   ├── inference_model.py
+│   ├── convert_mpi_inf_3dhp_to_....py
+│   ├── mediapipe_gradio.py
+│   ├── motionblur_gradio.py
+│   ├── mpi_inf_loader.py
+│   ├── occlusion_gradio.py
+│   ├── partialviews_gradio.py
+│   └── test_main.py
+│
+├── tests/ 🧪                  # Testing scripts, test assets
+│   ├── test_converter.py
+│   └── test_pose.mp4
+│
+├── docs/ 📚                   # Documentation (expanded explanations, findings)
+│   └── findings.md
+│
+├── README.md 📄               # Main documentation with tables, screenshots, project overview
+│
+├── requirements.txt 📥         # Project dependencies (if applicable)
+│
+└── .git/ 🕸️                  # Git version tracking (if using GitHub)
 ```
 
 ---
@@ -280,6 +331,11 @@ pose-estimation-toolkit/
 - **Healthcare**: Rehabilitation progress monitoring
 - **Fitness**: Exercise form correction
 - **Motion Capture**: Animation and research data
+- **Human-Computer Interaction (HCI)**: Gesture recognition and control interfaces
+- **Robotics & Automation**: Robot motion guidance and human-robot collaboration
+- **Augmented Reality (AR)**: Enhancing interactive AR experiences with body tracking
+- **Smart Home Automation**: Gesture-based commands for controlling devices
+- **Driver Monitoring Systems**: Detecting driver attention and fatigue in automotive settings
 
 ---
 
@@ -303,20 +359,18 @@ We welcome contributions to improve this comparative study!
 - 📖 Documentation improvements
 - 🧪 Test coverage expansion
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **MediaPipe Team**: For the excellent real-time pose estimation framework
-- **Martinez et al.**: For the seminal 2D-to-3D pose lifting architecture
-- **Research Community**: For benchmark datasets and evaluation protocols
-- **Open Source Contributors**: For ongoing improvements and feedback
+- 🌀 **MediaPipe Team** – For the excellent real-time pose estimation framework.  
+- 📐 **Martinez et al.** – For the seminal 2D-to-3D pose lifting architecture.  
+- 💻 **Open Source Contributors** – For ongoing improvements and feedback.  
+- 👩‍🏫 **Ms. Anu Maria Sebastian** (Assistant Professor, IIIT Kottayam, Dept. of CSE) – For invaluable guidance, mentorship, and support throughout the research.  
+- 🎓 **IIT Madras Data Science Faculty** – For providing a strong academic foundation and fostering a research-oriented environment.  
+- 🏛 **Max Planck Institute for Informatics** – For the MPI-INF-3DHP dataset essential to experimental evaluation.    
+- 🙌 **Family** and ❤️ **Friends** – For unwavering support and encouragement throughout the project.  
 
 ---
 
@@ -329,7 +383,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | 📧 **Email** | [kushal-tiwari@outlook.com](mailto:kushal-tiwari@outlook.com) |
 | 🐛 **Issues** | [GitHub Issues](https://github.com/kushal-tiwari/pose-estimation-toolkit/issues) |
 | 📚 **Research Paper** | Coming Soon |
-| 💼 **LinkedIn** | [Connect with me](https://linkedin.com/in/kushal-tiwari) |
+| 💼 **LinkedIn** | [Connect with me](https://www.linkedin.com/in/kushal-tiwari108) |
 
 </div>
 
