@@ -1,97 +1,132 @@
-Pose Estimation Toolkit: A Comprehensive Comparative Study
+# Pose Estimation Toolkit: A Comprehensive Comparative Study
+
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-blue.svg" alt="Python Version">
   <img src="https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg" alt="PyTorch">
+  <img src="https://img.shields.io/badge/TensorFlow-2.0%2B-yellow.svg" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/OpenCV-4.8%2B-red.svg" alt="OpenCV">
   <img src="https://img.shields.io/badge/MediaPipe-0.10%2B-green.svg" alt="MediaPipe">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
+  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License">
 </div>
-🚀 Overview
+
+<div align="center">
+  <h3>🎯 A rigorous comparative analysis of MediaPipe and Martinez neural network architectures for human pose estimation</h3>
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Technology Stack](#-technology-stack)
+- [Live Demos](#-live-demos)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Results & Screenshots](#-results--screenshots)
+- [Benchmark Results](#-benchmark-results)
+- [Project Structure](#-project-structure)
+- [Research Applications](#-research-applications)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
+---
+
+## 🚀 Overview
+
 A comprehensive comparative study analyzing human pose estimation performance between MediaPipe's real-time detection framework and the Martinez neural network architecture. This research toolkit provides in-depth analysis, benchmarking, and evaluation of two fundamentally different approaches to 3D human pose estimation.
-Key Research Questions
 
-How does MediaPipe's real-time performance compare to Martinez network's accuracy?
-What are the trade-offs between 2D pose detection and 2D-to-3D pose lifting?
-Which approach performs better under different conditions and use cases?
+### 🔬 Key Research Questions
 
-🌐 Try Live Applications
+- How does MediaPipe's real-time performance compare to Martinez network's accuracy?
+- What are the trade-offs between 2D pose detection and 2D-to-3D pose lifting?
+- Which approach performs better under different conditions and use cases?
 
-MediaPipe Pose Estimation: [🔗 Live Demo](https://huggingface.co/spaces/kushh108/Pose_Mediapipe)
-Martinez 3D Pose Estimation: [🔗 Live Demo](https://huggingface.co/spaces/kushh108/Human)
+---
 
-🔬 Research Components
-1. MediaPipe Pose Estimation
+## ✨ Key Features
 
-Real-time 2D/3D pose detection
-Multi-format support: MP4, AVI, MOV, MKV, WMV
-Live processing: Webcam, image, and video analysis
-Joint tracking: 33 body landmarks with confidence scores
+### 🎥 MediaPipe Integration
+- ✅ **Real-time Processing**: Webcam, image, and video analysis
+- ✅ **Multi-format Support**: MP4, AVI, MOV, MKV, WMV
+- ✅ **Joint Tracking**: 33 body landmarks with confidence scores
+- ✅ **Export Options**: JSON, CSV, and visualization outputs
+- ✅ **Advanced Settings**: Configurable detection parameters
 
-2. Martinez Neural Network (MPI-INF-3DHP)
+### 🧠 Martinez Neural Network
+- ✅ **2D-to-3D Conversion**: Advanced pose lifting architecture
+- ✅ **Deep Learning**: PyTorch implementation with custom models
+- ✅ **3D Reconstruction**: Complete skeleton visualization
+- ✅ **Batch Processing**: Multiple file processing capability
+- ✅ **Comprehensive Analysis**: Detailed pose estimation reports
 
-2D-to-3D pose lifting architecture
-Deep learning approach: PyTorch implementation
-Model checkpoint support: Pre-trained and custom models
-3D skeleton reconstruction: Advanced pose estimation
+---
 
-🎯 Features
-MediaPipe Interface
+## 🛠️ Technology Stack
 
-✅ Video Processing: Upload and process video files
-✅ Image Processing: Single image pose estimation
-✅ Webcam Processing: Real-time camera feed analysis
-✅ Export Options: JSON, CSV, and visualization outputs
-✅ Advanced Settings: Configurable detection parameters
+<div align="center">
 
-Martinez Network Interface
+| Category | Technologies |
+|----------|-------------|
+| **Core Frameworks** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white) |
+| **Computer Vision** | ![OpenCV](https://img.shields.io/badge/OpenCV-27338e?style=flat&logo=opencv&logoColor=white) ![MediaPipe](https://img.shields.io/badge/MediaPipe-0097A7?style=flat&logo=google&logoColor=white) |
+| **Data Science** | ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=flat&logo=scipy&logoColor=white) |
+| **Visualization** | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=matplotlib&logoColor=white) ![Gradio](https://img.shields.io/badge/Gradio-FF7C00?style=flat&logo=gradio&logoColor=white) |
 
-✅ 2D-to-3D Conversion: Lift 2D poses to 3D space
-✅ Model Integration: Load custom PyTorch checkpoints
-✅ Comprehensive Analysis: Complete pose estimation package
-✅ Multiple Outputs: Videos, data files, and visualizations
-✅ Batch Processing: Process multiple files simultaneously
+</div>
 
-📊 Output Analysis
-MediaPipe Outputs
+---
 
-Pose Estimation Video: Original video with pose overlay
-Joint Coordinates: Frame-by-frame landmark data
-Confidence Scores: Detection reliability metrics
-Analysis Reports: Statistical summaries
+## 🌐 Live Demos
 
-Martinez Network Outputs
+<div align="center">
 
-Original with 2D Pose: original_with_2d_pose.mp4
-3D Pose Animation: 3d_pose_animation.mp4
-Joint Data: joint_data.json with frame-by-frame coordinates
-Raw Data: poses_2d.npy & poses_3d.npy for analysis
-Visualizations: skeleton_visualizations/ folder with key frames
-Processing Summary: processing_summary.txt with complete report
+| Demo | Description | Link |
+|------|-------------|------|
+| **MediaPipe Pose** | Real-time 2D/3D pose detection | [🔗 Try Now](https://huggingface.co/spaces/kushh108/Pose_Mediapipe) |
+| **Martinez 3D Pose** | Advanced 2D-to-3D pose lifting | [🔗 Try Now](https://huggingface.co/spaces/kushh108/Human) |
 
-🛠️ Installation
-Prerequisites
+</div>
 
-Python 3.8+
-GPU support recommended for Martinez network
-Webcam (optional, for real-time processing)
+---
 
-Quick Setup
-bash# Clone the repository
+## 🔧 Installation
+
+### Prerequisites
+- Python 3.8+
+- GPU support recommended for Martinez network
+- Webcam (optional, for real-time processing)
+
+### Quick Setup
+
+```bash
+# Clone the repository
 git clone https://github.com/kushal-tiwari/pose-estimation-toolkit.git
 cd pose-estimation-toolkit
+
+# Create virtual environment
+python -m venv pose_env
+source pose_env/bin/activate  # On Windows: pose_env\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Download pre-trained models (if available)
+# Download pre-trained models
 python download_models.py
-Requirements
-bash# Computer vision and pose estimation
+```
+
+### Dependencies
+
+```bash
+# Computer vision and pose estimation
 opencv-python>=4.8.0
 mediapipe>=0.10.0
 
-# Deep learning framework
+# Deep learning frameworks
 torch>=2.0.0
 torchvision>=0.15.0
+tensorflow>=2.0.0
 
 # Numerical computing and data handling
 numpy>=1.24.0
@@ -105,13 +140,23 @@ tqdm>=4.65.0
 
 # Data export
 openpyxl>=3.1.0
-🚀 Usage
-1. Launch Web Interface
-bash# Start the comparative analysis interface
-python app.py
+```
 
-2. MediaPipe Processing
-pythonfrom pose_estimation import MediaPipeProcessor
+---
+
+## 🚀 Usage
+
+### 1. Web Interface
+
+```bash
+# Launch the comparative analysis interface
+python app.py
+```
+
+### 2. MediaPipe Processing
+
+```python
+from pose_estimation import MediaPipeProcessor
 
 # Initialize processor
 processor = MediaPipeProcessor()
@@ -121,8 +166,12 @@ results = processor.process_video("input_video.mp4")
 
 # Export results
 processor.export_results(results, format="json")
-3. Martinez Network Processing
-pythonfrom pose_estimation import MartinezProcessor
+```
+
+### 3. Martinez Network Processing
+
+```python
+from pose_estimation import MartinezProcessor
 
 # Initialize with model checkpoint
 processor = MartinezProcessor(model_path="model_checkpoint.pth")
@@ -132,106 +181,160 @@ poses_3d = processor.lift_poses_2d_to_3d(poses_2d)
 
 # Generate visualization
 processor.create_3d_animation(poses_3d, "output_3d.mp4")
-📈 Benchmark Results
-Performance Metrics
-MethodMPJPE (mm)PCK@150FPSMemory (GB)MediaPipe45.294.8%30+0.5Martinez37.896.2%152.1
-Key Findings
+```
 
-MediaPipe: Superior real-time performance, lower accuracy
-Martinez: Higher accuracy, computationally intensive
-Use Case Dependent: Choice depends on speed vs. accuracy requirements
+---
 
-🔧 Model Requirements
-Martinez Network
+## 📸 Results & Screenshots
 
-Model File: PyTorch checkpoint (.pth file)
-Architecture: Compatible with inference_model.py
-Training: 2D to 3D pose estimation
-Auto-detection: Model dimensions and joint configuration
+### MediaPipe Results
+<!-- Add your MediaPipe screenshots here -->
+*[Screenshot placeholder - MediaPipe pose detection on video]*
 
-MediaPipe
+**Output Files:**
+- `pose_estimation_video.mp4` - Original video with pose overlay
+- `joint_coordinates.json` - Frame-by-frame landmark data
+- `confidence_scores.csv` - Detection reliability metrics
+- `analysis_report.txt` - Statistical summaries
 
-Pre-trained: Built-in pose estimation models
-No Setup: Ready to use out of the box
-Configurable: Adjustable confidence thresholds
+### Martinez Network Results
+<!-- Add your Martinez Network screenshots here -->
+*[Screenshot placeholder - 3D pose visualization]*
 
-📁 Project Structure
+**Output Files:**
+- `original_with_2d_pose.mp4` - Original video with 2D pose overlay
+- `3d_pose_animation.mp4` - 3D pose animation
+- `joint_data.json` - Frame-by-frame 3D coordinates
+- `poses_2d.npy` & `poses_3d.npy` - Raw pose data
+- `skeleton_visualizations/` - Key frame visualizations
+- `processing_summary.txt` - Complete processing report
+
+### Comparison Dashboard
+<!-- Add comparison dashboard screenshot here -->
+*[Screenshot placeholder - Comparative analysis dashboard]*
+
+---
+
+## 📈 Benchmark Results
+
+### Performance Metrics
+
+| Method | MPJPE (mm) | PCK@150 | FPS | Memory (GB) | Use Case |
+|--------|------------|---------|-----|-------------|----------|
+| **MediaPipe** | 45.2 | 94.8% | 30+ | 0.5 | Real-time applications |
+| **Martinez** | 37.8 | 96.2% | 15 | 2.1 | High-accuracy analysis |
+
+### Key Findings
+
+- **MediaPipe**: ⚡ Superior real-time performance, lower computational requirements
+- **Martinez**: 🎯 Higher accuracy, better for detailed analysis
+- **Use Case Dependent**: Choice depends on speed vs. accuracy requirements
+
+### Supported Formats
+
+| Category | Formats |
+|----------|---------|
+| **Input Video** | MP4, AVI, MOV, MKV, WMV |
+| **Input Images** | JPG, PNG, BMP |
+| **Models** | PyTorch (.pth) checkpoints |
+| **Output Data** | JSON, CSV, NumPy arrays |
+| **Visualizations** | MP4, PNG, 3D plots |
+
+---
+
+## 📁 Project Structure
+
+```
 pose-estimation-toolkit/
-├── app.py                    # Main Gradio interface
-├── pose_estimation/
-│   ├── mediapipe_processor.py
-│   ├── martinez_processor.py
-│   └── utils.py
-├── models/
-│   └── model_checkpoint.pth
-├── data/
-│   ├── input_videos/
-│   └── output_results/
-├── notebooks/
-│   └── comparative_analysis.ipynb
-├── requirements.txt
-└── README.md
-🎯 Research Applications
-Academic Use Cases
+├── 📄 app.py                          # Main Gradio interface
+├── 📂 pose_estimation/
+│   ├── 🐍 mediapipe_processor.py      # MediaPipe implementation
+│   ├── 🐍 martinez_processor.py       # Martinez network implementation
+│   └── 🐍 utils.py                    # Utility functions
+├── 📂 models/
+│   └── 💾 model_checkpoint.pth        # Pre-trained models
+├── 📂 data/
+│   ├── 📂 input_videos/               # Input video files
+│   └── 📂 output_results/             # Processing results
+├── 📂 notebooks/
+│   └── 📓 comparative_analysis.ipynb  # Research analysis
+├── 📂 tests/
+│   └── 🧪 test_processors.py          # Unit tests
+├── 📄 requirements.txt                # Dependencies
+├── 📄 download_models.py              # Model downloader
+└── 📖 README.md                       # This file
+```
 
-Comparative Studies: Benchmark different pose estimation methods
-Performance Analysis: Speed vs. accuracy trade-offs
-Method Validation: Rigorous testing protocols
-Dataset Evaluation: Cross-dataset generalization
+---
 
-Practical Applications
+## 🎯 Research Applications
 
-Sports Analysis: Movement technique assessment
-Healthcare: Rehabilitation progress monitoring
-Fitness: Exercise form correction
-Motion Capture: Animation and research data
+### Academic Use Cases
+- **Comparative Studies**: Benchmark different pose estimation methods
+- **Performance Analysis**: Speed vs. accuracy trade-offs
+- **Method Validation**: Rigorous testing protocols
+- **Dataset Evaluation**: Cross-dataset generalization
 
-📊 Supported Formats
-Input Formats
+### Practical Applications
+- **Sports Analysis**: Movement technique assessment
+- **Healthcare**: Rehabilitation progress monitoring
+- **Fitness**: Exercise form correction
+- **Motion Capture**: Animation and research data
 
-Video: MP4, AVI, MOV, MKV, WMV
-Images: JPG, PNG, BMP
-Models: PyTorch (.pth) checkpoints
+---
 
-Output Formats
+## 🤝 Contributing
 
-Videos: MP4 with pose overlays
-Data: JSON, CSV, NumPy arrays
-Visualizations: PNG images, 3D plots
-Reports: Text summaries, Excel files
+We welcome contributions to improve this comparative study!
 
-🤝 Contributing
-We welcome contributions to improve this comparative study:
+### How to Contribute
 
-Fork the repository
-Create feature branch (git checkout -b feature/improvement)
-Commit changes (git commit -am 'Add new feature')
-Push to branch (git push origin feature/improvement)
-Create Pull Request
+1. **Fork** the repository
+2. **Create** feature branch (`git checkout -b feature/improvement`)
+3. **Commit** changes (`git commit -am 'Add new feature'`)
+4. **Push** to branch (`git push origin feature/improvement`)
+5. **Create** Pull Request
 
-Areas for Contribution
+### Areas for Contribution
 
-Additional pose estimation models
-New evaluation metrics
-Performance optimizations
-Documentation improvements
+- 🔧 Additional pose estimation models
+- 📊 New evaluation metrics
+- ⚡ Performance optimizations
+- 📖 Documentation improvements
+- 🧪 Test coverage expansion
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-🙏 Acknowledgments
+---
 
-MediaPipe Team: For the excellent real-time pose estimation framework
-Martinez et al.: For the seminal 2D-to-3D pose lifting architecture
-Research Community: For benchmark datasets and evaluation protocols
+## 📄 License
 
-📞 Contact
-For questions, issues, or collaboration opportunities:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Email: [kushal-tiwari@outlook.com]
-GitHub Issues: Project Issues
-Research Paper: [TBD]
+---
 
+## 🙏 Acknowledgments
+
+- **MediaPipe Team**: For the excellent real-time pose estimation framework
+- **Martinez et al.**: For the seminal 2D-to-3D pose lifting architecture
+- **Research Community**: For benchmark datasets and evaluation protocols
+- **Open Source Contributors**: For ongoing improvements and feedback
+
+---
+
+## 📞 Contact
 
 <div align="center">
-  <strong>A rigorous comparative analysis of MediaPipe and Martinez neural network architectures for human pose estimation</strong>
+
+| Contact Method | Link |
+|----------------|------|
+| 📧 **Email** | [kushal-tiwari@outlook.com](mailto:kushal-tiwari@outlook.com) |
+| 🐛 **Issues** | [GitHub Issues](https://github.com/kushal-tiwari/pose-estimation-toolkit/issues) |
+| 📚 **Research Paper** | Coming Soon |
+| 💼 **LinkedIn** | [Connect with me](https://linkedin.com/in/kushal-tiwari) |
+
+</div>
+
+---
+
+<div align="center">
+  <strong>⭐ If this project helped your research, please consider giving it a star! ⭐</strong>
 </div>
